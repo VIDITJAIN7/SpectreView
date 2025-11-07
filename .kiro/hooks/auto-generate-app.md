@@ -2,27 +2,35 @@
 
 ## Description
 
-Automatically runs the complete application generation workflow when template files are saved. This master hook executes validation, scaffolding, and boilerplate generation in sequence.
+The ULTIMATE automation hook! Fill ONLY the requirements file, save it, and get a complete working application. This master hook generates design.md and tasks.md from your requirements, then scaffolds and generates all code automatically.
 
 ## Trigger
 
 **Event**: File Saved  
-**File Patterns**: 
-- `templates/requirements.md`
-- `templates/design.md`
+**File Pattern**: 
+- `templates/requirements.md` (ONLY file you need to edit!)
 
 ## Workflow
 
-This hook runs three workflows in sequence:
+This hook runs FOUR workflows in sequence:
 
-### 1. Validate Structure
-- Scans for unreplaced placeholders
-- Verifies file structure is complete
-- Checks content completeness
+### 1. Generate Design & Tasks from Requirements
+- Reads and analyzes your requirements.md
+- Extracts app name, description, user stories, acceptance criteria
+- Infers data models from requirements
+- **Generates templates/design.md** with complete architecture, data models, API design
+- **Generates templates/tasks.md** with implementation task breakdown
+- **If generation fails**: Stops and reports errors
+- **If generation succeeds**: Proceeds to validation
+
+### 2. Validate All Files
+- Validates requirements.md has user stories
+- Validates generated design.md has all sections
+- Validates generated tasks.md has actionable steps
 - **If validation fails**: Stops and reports errors
 - **If validation passes**: Proceeds to scaffolding
 
-### 2. Scaffold Application
+### 3. Scaffold Application
 - Creates complete directory structure
 - Generates configuration files
 - Creates entry points
@@ -30,8 +38,8 @@ This hook runs three workflows in sequence:
 - **If scaffolding fails**: Stops and reports errors
 - **If scaffolding succeeds**: Proceeds to boilerplate generation
 
-### 3. Generate Boilerplate
-- Analyzes data models from design.md
+### 4. Generate Boilerplate
+- Analyzes data models from generated design.md
 - Generates backend code (models, routes, services)
 - Generates frontend code (components, hooks, stores)
 - Creates utility code (validation, helpers)
@@ -39,9 +47,14 @@ This hook runs three workflows in sequence:
 
 ## Context Files
 
-- `templates/requirements.md`
-- `templates/design.md`
-- `templates/tasks.md`
+**Input (User fills this):**
+- `templates/requirements.md` - The ONLY file you need to customize!
+
+**Auto-Generated (Hook creates these):**
+- `templates/design.md` - Generated from requirements
+- `templates/tasks.md` - Generated from requirements
+
+**Reference (Used for generation):**
 - `.kiro/steering/product.md`
 - `.kiro/steering/structure.md`
 - `.kiro/steering/tech.md`
@@ -51,18 +64,23 @@ This hook runs three workflows in sequence:
 ### Success Case
 
 ```
-=== STEP 1: VALIDATION ===
-✓ Placeholder check: All placeholders replaced (0 remaining)
-✓ File structure: All required files present
-✓ Content completeness: All sections properly filled
+=== STEP 1: GENERATE DESIGN & TASKS ===
+✓ Analyzed requirements.md (7 user stories, 35 acceptance criteria)
+✓ Generated templates/design.md (8 sections, 3 data models)
+✓ Generated templates/tasks.md (15 tasks, 45 sub-tasks)
 
-=== STEP 2: SCAFFOLDING ===
+=== STEP 2: VALIDATION ===
+✓ Requirements: Complete with user stories
+✓ Design: All sections filled, data models defined
+✓ Tasks: Actionable steps with requirement references
+
+=== STEP 3: SCAFFOLDING ===
 ✓ Created directory structure (15 directories)
 ✓ Generated configuration files (6 files)
 ✓ Created entry points (4 files)
 ✓ Setup testing infrastructure (3 files)
 
-=== STEP 3: BOILERPLATE GENERATION ===
+=== STEP 4: BOILERPLATE GENERATION ===
 ✓ Generated Backend:
   - 3 data models (User, Task, Project)
   - 9 API routes
@@ -91,30 +109,25 @@ Total: 52 files generated
 4. Begin implementing TODO items in service files
 ```
 
-### Validation Failure Case
+### Generation Failure Case
 
 ```
-=== STEP 1: VALIDATION ===
-✗ Placeholder check: 5 unreplaced placeholders found
+=== STEP 1: GENERATE DESIGN & TASKS ===
+✗ Failed to analyze requirements.md
 
-Unreplaced Placeholders:
-  templates/requirements.md:
-    - Line 15: <APP_NAME>
-    - Line 23: <APP_DESCRIPTION>
-  
-  templates/design.md:
-    - Line 67: <FRONTEND_TECH>
-    - Line 89: <DATA_MODELS>
+Error: Requirements file appears incomplete
+- Missing user stories section
+- No acceptance criteria found
+- App description not provided
 
-✗ Content completeness: 2 sections appear incomplete
-
-Status: VALIDATION FAILED
-Workflow stopped. Please fix the issues above and save the file again.
+Status: GENERATION FAILED
+Workflow stopped. Please complete requirements.md and save again.
 
 Next Steps:
-1. Replace all <PLACEHOLDER> markers with actual values
-2. Complete incomplete sections
-3. Save the file to trigger workflow again
+1. Add user stories with "As a [role], I want [feature], so that [benefit]" format
+2. Include acceptance criteria for each user story
+3. Provide app name and description in Introduction section
+4. Save the file to trigger workflow again
 ```
 
 ## Error Handling
@@ -126,16 +139,20 @@ Next Steps:
 
 ## Benefits
 
-- **One-Click Generation**: Save template file → complete app generated
-- **Safe**: Validates before making changes
+- **Ultimate Simplicity**: Fill ONLY requirements.md → complete app generated
+- **Zero Manual Work**: design.md and tasks.md are auto-generated
+- **Intelligent**: Infers architecture and data models from requirements
+- **Safe**: Validates at each step before proceeding
 - **Incremental**: Each step must succeed before next step runs
 - **Informative**: Detailed output shows exactly what was created
 - **Error-Friendly**: Clear error messages with actionable fixes
 
 ## Notes
 
-- This hook replaces the need to manually run three separate hooks
+- **You ONLY edit templates/requirements.md** - that's it!
+- design.md and tasks.md are automatically generated from requirements
+- This hook replaces the need to manually run four separate workflows
 - Validation ensures you don't generate incomplete apps
 - If you want more control, you can still run individual hooks manually
-- The hook only runs when you save templates/requirements.md or templates/design.md
-- Existing files are not overwritten (safe to run multiple times)
+- The hook only runs when you save templates/requirements.md
+- Existing generated files are overwritten with new versions
