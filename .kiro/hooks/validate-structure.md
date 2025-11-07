@@ -6,9 +6,9 @@ Manual execution when user wants to verify that all placeholders have been repla
 
 ## Context Files
 
-- `.kiro/specs/agentic-full-stack-skeleton/requirements.md`
-- `.kiro/specs/agentic-full-stack-skeleton/design.md`
-- `.kiro/specs/agentic-full-stack-skeleton/tasks.md`
+- `templates/requirements.md`
+- `templates/design.md`
+- `templates/tasks.md`
 - `.kiro/steering/product.md`
 - `.kiro/steering/structure.md`
 - `.kiro/steering/tech.md`

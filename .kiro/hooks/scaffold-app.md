@@ -6,8 +6,8 @@ Manual execution when user wants to create initial application structure based o
 
 ## Context Files
 
-- `.kiro/specs/agentic-full-stack-skeleton/requirements.md`
-- `.kiro/specs/agentic-full-stack-skeleton/design.md`
+- `templates/requirements.md`
+- `templates/design.md`
 - `.kiro/steering/product.md`
 - `.kiro/steering/structure.md`
 - `.kiro/steering/tech.md`

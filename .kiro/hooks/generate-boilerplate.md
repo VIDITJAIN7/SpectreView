@@ -6,8 +6,8 @@ Manual execution after scaffolding is complete, when user wants to generate comm
 
 ## Context Files
 
-- `.kiro/specs/agentic-full-stack-skeleton/design.md`
-- `.kiro/specs/agentic-full-stack-skeleton/requirements.md`
+- `templates/design.md`
+- `templates/requirements.md`
 - `.kiro/steering/tech.md`
 - `.kiro/steering/structure.md`
 
