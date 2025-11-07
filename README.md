@@ -35,9 +35,14 @@ Guide AI agent behavior during code generation:
 
 Pre-packaged automation for common workflows:
 
+**Manual Execution Hooks:**
 - **scaffold-app.md**: Create initial directory structure and base files
 - **validate-structure.md**: Verify placeholders are replaced and structure is valid
 - **generate-boilerplate.md**: Create common code patterns based on design
+
+**Auto-Triggered Hooks:**
+- **docsync-api.md**: Automatically updates API documentation when route files are saved
+- **teststub-component.md**: Automatically generates test stubs when new components are created
 
 ## Placeholder Reference
 
@@ -150,6 +155,12 @@ Execute: .kiro/hooks/generate-boilerplate.md
 
 Open `.kiro/specs/my-app/tasks.md` and execute tasks one by one using Kiro's task execution feature.
 
+### Step 11: Enjoy Automated Documentation & Testing
+
+As you develop:
+- **API Documentation**: Automatically updates when you save route files in `apps/api/src/routes/`
+- **Component Tests**: Automatically generated when you create new components in `apps/web/src/components/`
+
 ## Example Use Case: Task Management App
 
 Here's how you'd customize the skeleton for a task management application:
@@ -188,9 +199,24 @@ Here's how you'd customize the skeleton for a task management application:
 │  2. Steering files guide AI agent behavior             │
 │  3. Agent hooks automate scaffolding                   │
 │  4. AI agents implement your design                    │
-│  5. You get a working application                      │
+│  5. Auto-hooks maintain docs & tests as you code       │
+│  6. You get a working application                      │
 └─────────────────────────────────────────────────────────┘
 ```
+
+## Intelligent Automation
+
+The skeleton includes smart automation that works while you develop:
+
+### API Documentation Sync (docsync-api.md)
+- **Triggers**: Automatically when you save route files (`apps/api/src/routes/**/*.ts`)
+- **Actions**: Parses Express.js routes, extracts JSDoc comments, updates `docs/api.md`
+- **Benefits**: Always up-to-date API documentation without manual maintenance
+
+### Component Test Generation (teststub-component.md)
+- **Triggers**: Automatically when you create new components (`apps/web/src/components/**/*.tsx`)
+- **Actions**: Generates Vitest test stubs with basic test cases
+- **Benefits**: Every component gets a test file, encouraging test-driven development
 
 ## Relationship Between Components
 
