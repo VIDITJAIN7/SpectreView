@@ -11,31 +11,31 @@ The skeleton operates as a static file generator with no runtime dependencies. U
 ### System Architecture
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                  Agentic Full-Stack Skeleton            │
-│                                                         │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐ │
-│  │   Template   │  │   Steering   │  │    Agent     │ │
-│  │    Files     │  │    Files     │  │    Hooks     │ │
-│  │              │  │              │  │              │ │
-│  │ requirements │  │  product.md  │  │  scaffold/   │ │
-│  │ design.md    │  │  structure   │  │  validate/   │ │
-│  │ tasks.md     │  │  tech.md     │  │  generate/   │ │
-│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘ │
-│         │                 │                 │         │
-│         └─────────────────┼─────────────────┘         │
-│                           │                           │
-│                    ┌──────▼───────┐                   │
-│                    │  Placeholder │                   │
-│                    │    Engine    │                   │
-│                    └──────┬───────┘                   │
-│                           │                           │
-│                    ┌──────▼───────┐                   │
-│                    │  Generated   │                   │
-│                    │  Application │                   │
-│                    │   Scaffold   │                   │
-│                    └──────────────┘                   │
-└─────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────┐
+│                  Agentic Full-Stack Skeleton           │
+│                                                        │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
+│  │   Template   │  │   Steering   │  │    Agent     │  │
+│  │    Files     │  │    Files     │  │    Hooks     │  │
+│  │              │  │              │  │              │  │
+│  │ requirements │  │  product.md  │  │  scaffold/   │  │ 
+│  │ design.md    │  │  structure   │  │  validate/   │  │
+│  │ tasks.md     │  │  tech.md     │  │  generate/   │  │
+│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘  │
+│         │                 │                 │          │
+│         └─────────────────┼─────────────────┘          │
+│                           │                            │
+│                    ┌──────▼───────┐                    │
+│                    │  Placeholder │                    │
+│                    │    Engine    │                    │
+│                    └──────┬───────┘                    │
+│                           │                            │
+│                    ┌──────▼───────┐                    │
+│                    │  Generated   │                    │
+│                    │  Application │                    │
+│                    │   Scaffold   │                    │
+│                    └──────────────┘                    │
+└────────────────────────────────────────────────────────┘
 ```
 
 ### Design Principles
