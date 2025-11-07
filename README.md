@@ -195,12 +195,12 @@ Here's how you'd customize the skeleton for a task management application:
 ┌─────────────────────────────────────────────────────────┐
 │              Agentic Full-Stack Skeleton                │
 │                                                         │
-│  1. You customize templates with placeholders          │
-│  2. Steering files guide AI agent behavior             │
-│  3. Agent hooks automate scaffolding                   │
-│  4. AI agents implement your design                    │
-│  5. Auto-hooks maintain docs & tests as you code       │
-│  6. You get a working application                      │
+│  1. You customize templates with placeholders           │
+│  2. Steering files guide AI agent behavior              │
+│  3. Agent hooks automate scaffolding                    │
+│  4. AI agents implement your design                     │
+│  5. Auto-hooks maintain docs & tests as you code        │
+│  6. You get a working application                       │
 └─────────────────────────────────────────────────────────┘
 ```
 
