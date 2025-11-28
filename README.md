@@ -136,10 +136,10 @@ If you want to test the skin and extension separately on an existing VLC install
 
 ## 📖 Documentation
 
-- **[SPECTRE_SETUP.md](SPECTRE_SETUP.md)** - Complete setup and usage guide
-- **[AUTO_LOAD_SOLUTION.md](AUTO_LOAD_SOLUTION.md)** - Technical implementation details
-- **[COMPILE_AND_RUN.md](COMPILE_AND_RUN.md)** - VLC compilation instructions
-- **[STATUS_SUMMARY.md](STATUS_SUMMARY.md)** - Project status and features
+- **[SPECTRE_SETUP.md](docs/SPECTRE_SETUP.md)** - Complete setup and usage guide
+- **[AUTO_LOAD_SOLUTION.md](docs/AUTO_LOAD_SOLUTION.md)** - Technical implementation details
+- **[COMPILE_AND_RUN.md](docs/COMPILE_AND_RUN.md)** - VLC compilation instructions
+- **[STATUS_SUMMARY.md](docs/STATUS_SUMMARY.md)** - Project status and features
 
 ## 🔧 Configuration
 
